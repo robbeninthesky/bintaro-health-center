@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Janji Temu - Rumah Sakit Bintaro Health Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Tambahan Khusus untuk Halaman Janji Temu */
+        .appointment-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .appointment-form-container {
+            background-color: var(--white-text);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .appointment-form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 2.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-text);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; /* Agar padding tidak menambah lebar */
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-group select {
+            appearance: none; /* Menghilangkan style default select */
+            -webkit-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M205.7%2099.3L128%20177l-77.7-77.7a16%2016%200%200%200-22.6%2022.6l88%2088a16%2016%200%200%200%2022.6%200l88-88a16%2016%200%200%200-22.6-22.6z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+            padding-right: 40px; /* Ruang untuk ikon panah */
+        }
+
+        .form-inline-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-inline-group .form-group {
+            flex: 1; /* Agar setiap grup mengambil ruang yang sama */
+            margin-bottom: 0; /* Hapus margin bawah default */
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2); /* Memperbesar checkbox */
+        }
+
+        .form-checkbox a {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color); /* Warna hijau untuk submit */
+            color: var(--white-text);
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838; /* Darker green */
+        }
+
+        /* Responsive untuk formulir */
+        @media (max-width: 768px) {
+            .form-inline-group {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-inline-group .form-group {
+                margin-bottom: 20px; /* Kembalikan margin untuk tampilan vertikal */
+            }
+            .appointment-form-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo Rumah Sakit Anak Ikon Modern Biru Kehijauan dan Merah(1).jpg"> <div class="content"></div>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#tentang">Tentang Kami</a></li>
+                    <li><a href="index.html#layanan">Layanan</a></li>
+                    <li><a href="index.html#dokter">Dokter</a></li>
+                    <li><a href="index.html#fasilitas">Fasilitas</a></li>
+                    <li><a href="index.html#kontak">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <input type="text" placeholder="Cari...">
+                <a href="appointment.html" class="btn btn-primary">Buat Janji Temu</a>
+                <a href="tel:+62123456789" class="emergency-call"><i class="fas fa-phone-alt"></i> Darurat</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="appointment-section">
+        <div class="container">
+            <div class="appointment-form-container">
+                <h2>Buat Janji Temu Online</h2>
+                <form action="#" method="POST"> <div class="form-group">
+                        <label for="poli">Pilih Layanan/Poli Tujuan:</label>
+                        <select id="poli" name="poli" required>
+                            <option value="">-- Pilih Poli/Layanan --</option>
+                            <option value="umum">Poli Umum</option>
+                            <option value="jantung">Poli Spesialis Jantung & Pembuluh Darah</option>
+                            <option value="anak">Poli Spesialis Anak</option>
+                            <option value="penyakit_dalam">Poli Spesialis Penyakit Dalam</option>
+                            <option value="gigi">Poli Gigi</option>
+                            <option value="radiologi">Radiologi (Rontgen, USG, MRI)</option>
+                            <option value="laboratorium">Laboratorium</option>
+                            <option value="vaksinasi">Vaksinasi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dokter">Pilih Dokter (Opsional):</label>
+                        <select id="dokter" name="dokter">
+                            <option value="">-- Pilih Dokter --</option>
+                            <option value="dr_budi">Dr. Budi Santoso (Spesialis Jantung)</option>
+                            <option value="dr_ayu">Dr. Ayu Lestari (Spesialis Anak)</option>
+                            <option value="dr_cipta">Dr. Cipta Wijaya (Spesialis Bedah Umum)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-inline-group">
+                        <div class="form-group">
+                            <label for="tanggal">Pilih Tanggal:</label>
+                            <input type="date" id="tanggal" name="tanggal" required>
+                            </div>
+                        <div class="form-group">
+                            <label for="waktu">Pilih Waktu:</label>
+                            <select id="waktu" name="waktu" required>
+                                <option value="">-- Pilih Waktu --</option>
+                                <option value="09:00">09:00 - 10:00</option>
+                                <option value="10:00">10:00 - 11:00</option>
+                                <option value="11:00">11:00 - 12:00</option>
+                                <option value="14:00">14:00 - 15:00</option>
+                                <option value="15:00">15:00 - 16:00</option>
+                            </select>
+                            </div>
+                    </div>
+
+                    <h3>Informasi Pasien</h3>
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap Pasien:</label>
+                        <input type="text" id="nama" name="nama" placeholder="Sesuai KTP/Identitas" required>
+                    </div>
+                    <div class="form-inline-group">
+                        <div class="form-group">
+                            <label for="tgl_lahir">Tanggal Lahir:</label>
+                            <input type="date" id="tgl_lahir" name="tgl_lahir" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis_kelamin">Jenis Kelamin:</label>
+                            <select id="jenis_kelamin" name="jenis_kelamin" required>
+                                <option value="">-- Pilih --</option>
+                                <option value="laki_laki">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-inline-group">
+                        <div class="form-group">
+                            <label for="no_hp">Nomor Telepon/HP:</label>
+                            <input type="tel" id="no_hp" name="no_hp" placeholder="Contoh: 081234567890" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Alamat Email:</label>
+                            <input type="email" id="email" name="email" placeholder="contoh@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="no_rm">Nomor Rekam Medis (Opsional, jika sudah pernah berobat):</label>
+                        <input type="text" id="no_rm" name="no_rm" placeholder="Contoh: RM123456">
+                    </div>
+                    <div class="form-group">
+                        <label for="asuransi">Jenis Asuransi/Pembayaran:</label>
+                        <select id="asuransi" name="asuransi" required>
+                            <option value="">-- Pilih --</option>
+                            <option value="mandiri">Mandiri / Bayar Langsung</option>
+                            <option value="bpjs">BPJS Kesehatan</option>
+                            <option value="asuransi_swasta">Asuransi Swasta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="keluhan">Keluhan Singkat/Tujuan Kunjungan:</label>
+                        <textarea id="keluhan" name="keluhan" rows="4" placeholder="Contoh: Demam, batuk, dan sakit kepala sejak 3 hari yang lalu."></textarea>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="setuju" name="setuju" required>
+                        <label for="setuju">Saya telah membaca dan menyetujui <a href="#">Kebijakan Privasi</a> serta <a href="#">Syarat & Ketentuan</a> Rumah Sakit.</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Konfirmasi Janji Temu</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-col">
+                <h3>Rumah Sakit Bintaro Health Care</h3>
+                <p>Melayani dengan sepenuh hati, memberikan perawatan terbaik untuk kesehatan Anda, Dan mendahului kejujuran.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Informasi Cepat</h3>
+                <ul>
+                    <li><a href="index.html#tentang">Tentang Kami</a></li>
+                    <li><a href="index.html#layanan">Layanan</a></li>
+                    <li><a href="index.html#dokter">Dokter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Hubungi Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Kesehatan No. 123, Jakarta Pusat</p>
+                <p><i class="fas fa-phone"></i> (021) 1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@rsbintarohealthcenter.com</p>
+                <p><i class="fas fa-clock"></i> Buka 24 Jam</p>
+            </div>
+            <div class="footer-col">
+                <h3>Peta Lokasi</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15866.720235948924!2d106.82060375!3d-6.17511065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2f2d2f2d1%3A0x123456789abcdef0!2sJakarta%20Pusat%2C%20DKI%20Jakarta!5e0!3m2!1sen!2sid!4v1678901234567!5m2!1sen!2sid" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Rumah Sakit Bintaro Health center. All rights reserved.</p>
+            <p><a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

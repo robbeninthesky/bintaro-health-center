@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas Kami - Rumah Sakit Bintaro Health Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Tambahan Khusus untuk Halaman Fasilitas (Ini bisa dipindahkan ke style.css) */
+        .facilities-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .facilities-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-size: 2.5em;
+        }
+
+        .facility-category {
+            margin-bottom: 60px;
+            background-color: var(--white-text);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .facility-category h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+            font-size: 1.8em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .facility-category h3::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .facility-item {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden; /* Agar gambar tidak keluar */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .facility-item img {
+            width: 100%;
+            height: 200px; /* Tinggi tetap untuk semua gambar */
+            object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+            display: block;
+        }
+
+        .facility-item .content {
+            padding: 20px;
+        }
+
+        .facility-item h4 {
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .facility-item p {
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Video Section (Optional) */
+        .video-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px 0;
+            background-color: var(--white-text);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .video-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .facilities-section h2 {
+                font-size: 2em;
+            }
+            .facility-category {
+                padding: 20px;
+            }
+            .facility-category h3 {
+                font-size: 1.5em;
+            }
+            .facility-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                     <img src="images/Logo Rumah Sakit Anak Ikon Modern Biru Kehijauan dan Merah(1).jpg"> <div class="content">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#tentang">Tentang Kami</a></li>
+                    <li><a href="index.html#layanan">Layanan</a></li>
+                    <li><a href="index.html#dokter">Dokter</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
+                    <li><a href="index.html#kontak">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <input type="text" placeholder="Cari...">
+                <a href="appointment.html" class="btn btn-primary">Buat Janji Temu</a>
+                <a href="tel:+62123456789" class="emergency-call"><i class="fas fa-phone-alt"></i> Darurat</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="facilities-section">
+        <div class="container">
+            <h2>Fasilitas Rumah Sakit Kami</h2>
+
+            <div class="facility-category">
+                <h3>Kamar Rawat Inap</h3>
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <img src="images/kamar-vvip.jpg" alt="Kamar Rawat VVIP"> <div class="content">
+                            <h4>Kamar VVIP / Suite</h4>
+                            <p>Kamar luas dengan fasilitas lengkap seperti kamar tidur terpisah, ruang tamu, kamar mandi mewah, TV kabel, kulkas, dan Wi-Fi.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/kamar-kelas-1.jpeg" alt="Kamar Rawat Kelas I"> <div class="content">
+                            <h4>Kamar Kelas I</h4>
+                            <p>Kamar nyaman dengan 1-2 tempat tidur, kamar mandi dalam, AC, dan TV. Ideal untuk privasi pasien.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/kamar-kelas-2.jpeg" alt="Kamar Rawat Kelas II"> <div class="content">
+                            <h4>Kamar Kelas II</h4>
+                            <p>Kamar dengan 3-4 tempat tidur, dilengkapi AC dan kamar mandi. Menawarkan kenyamanan dengan biaya yang lebih terjangkau.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/kamar_rawat_inap_anak.jpg" alt="Kamar Rawat Anak"> <div class="content">
+                            <h4>Kamar Rawat Anak</h4>
+                            <p>Kamar khusus untuk pasien anak dengan dekorasi ceria, dilengkapi fasilitas yang ramah anak dan orang tua.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="facility-category">
+                <h3>Ruang Perawatan Khusus</h3>
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <img src="images/icu.jpg" alt="Intensive Care Unit"> <div class="content">
+                            <h4>ICU (Intensive Care Unit)</h4>
+                            <p>Unit perawatan intensif 24 jam untuk pasien dengan kondisi kritis yang memerlukan pengawasan ketat dan alat bantu.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/nicu.jpg" alt="NICU"> <div class="content">
+                            <h4>NICU (Neonatal Intensive Care Unit)</h4>
+                            <p>Perawatan intensif khusus untuk bayi baru lahir, terutama prematur atau dengan kondisi medis tertentu.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/ruang-operasi.JPG" alt="Ruang Operasi"> <div class="content">
+                            <h4>Ruang Operasi (OK)</h4>
+                            <p>Dilengkapi teknologi bedah modern dan standar sterilisasi tinggi untuk berbagai prosedur operasi.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/ruang-bersalin.jpg" alt="Ruang Bersalin"> <div class="content">
+                            <h4>Ruang Bersalin / VK</h4>
+                            <p>Lingkungan yang aman dan nyaman untuk proses persalinan, didukung oleh tim medis profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="facility-category">
+                <h3>Peralatan Medis & Diagnostik Canggih</h3>
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <img src="images/ct-scan.jpg" alt="CT Scan"> <div class="content">
+                            <h4>CT Scan (Computed Tomography)</h4>
+                            <p>Teknologi X-ray canggih untuk menghasilkan gambar tiga dimensi yang detail.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/lab-klinik.jpg" alt="Laboratorium Klinik"> <div class="content">
+                            <h4>Laboratorium Klinik</h4>
+                            <p>Dilengkapi alat-alat otomatis untuk pemeriksaan darah, urine, dan patologi anatomi dengan hasil cepat dan akurat.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/fisio.jpg" alt="Fisioterapi"> <div class="content">
+                            <h4>Pusat Fisioterapi & Rehabilitasi</h4>
+                            <p>Sarana lengkap untuk pemulihan fungsi tubuh pasca-cedera atau penyakit, didukung terapis ahli.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="facility-category">
+                <h3>Fasilitas Pendukung & Kenyamanan Pasien</h3>
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <img src="images/lobby.jpg" alt="Lobi Rumah Sakit"> <div class="content">
+                            <h4>Lobi & Area Tunggu Nyaman</h4>
+                            <p>Area lobi yang luas, bersih, dan nyaman dilengkapi dengan Wi-Fi gratis untuk keluarga pasien.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/parking.jpg" alt="Area Parkir"> <div class="content">
+                            <h4>Area Parkir Luas</h4>
+                            <p>Tersedia area parkir yang aman dan luas untuk kendaraan roda dua maupun roda empat.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/apotek.jpg" alt="Apotek 24 Jam"> <div class="content">
+                            <h4>Apotek 24 Jam</h4>
+                            <p>Akses mudah ke obat-obatan yang dibutuhkan, buka 24 jam untuk melayani pasien kapan saja.</p>
+                        </div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="images/masjid.jpg" alt="Mushola"> <div class="content">
+                            <h4>Mushola & Ruang Ibadah</h4>
+                            <p>Fasilitas tempat ibadah yang bersih dan menenangkan untuk semua pasien dan pengunjung.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h3>Tur Virtual Rumah Sakit Kami</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=r7O4nK6jYf1Z2r1T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top:20px; font-style:italic; color:#777;">*Video di atas adalah placeholder. Ganti dengan tur virtual rumah sakit Anda.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="kontak" class="main-footer">
+        <div class="container">
+            <div class="footer-col">
+                <h3>Rumah Sakit Sehat Bintaro Health Centar</h3>
+                <p>Melayani dengan sepenuh hati, memberikan perawatan terbaik untuk kesehatan Anda, Dan mendahului keujuran.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Informasi Cepat</h3>
+                <ul>
+                    <li><a href="index.html#tentang">Tentang Kami</a></li>
+                    <li><a href="index.html#layanan">Layanan</a></li>
+                    <li><a href="index.html#dokter">Dokter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Hubungi Kami</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Kesehatan No. 123, Jakarta Pusat</p>
+                <p><i class="fas fa-phone"></i> (021) 1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@rsbintarohealthcenter.com</p>
+                <p><i class="fas fa-clock"></i> Buka 24 Jam</p>
+            </div>
+            <div class="footer-col">
+                <h3>Peta Lokasi</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5684693998785!2d106.82029331476882!3d-6.175110995528994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d1a5b8a0d7%3A0x1d3a4b0d1e3d0c2e!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1678901234567!5m2!1sen!2sid" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Rumah Sakit Bintaro Health Center. All rights reserved.</p>
+            <p><a href="#">Kebijakan Privasi</a> | <a href="#">Syarat & Ketentuan</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
